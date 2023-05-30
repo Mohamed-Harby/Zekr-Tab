@@ -1,0 +1,294 @@
+@font-face {
+    font-family: 'My Lato';
+    src: url('../fonts/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Hafs';
+    src: url('../fonts/Hafs.ttf');
+}
+
+
+@font-face {
+    font-family: 'Amiri Quran';
+    src: url(../fonts/NotoNaskhArabic-VariableFont_wght.ttf);
+}
+
+
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Amiri', Arial, sans-serif;
+    /* Add additional styling for the body or specific elements */
+    unicode-range: U+0600-06FF;
+    /* Specify the Unicode range for Arabic characters */
+    /* counter-reset: arabic-numeric-figure; */
+    /* Reset the counter for Arabic numerals */
+}
+
+body:before {
+    content: counter(arabic-numeric-figure, decimal-leading-zero);
+    display: none;
+}
+
+/* Enforce Arabic number system */
+@counter-style arabic-numeric-figure {
+    system: arabic-indic;
+}
+
+#natureImage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#main-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 20px; */
+    /* padding: 2rem; */
+}
+
+#bar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 20px; */
+}
+
+#nextPrayerContainer {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    transition: all 0.5s;
+    padding: 0rem 1rem 0rem;
+    height: 100px;
+}
+  
+#nextPrayerContainer #nextPrayer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 150px;
+    user-select: none;
+}
+
+
+  
+#nextPrayer:hover,
+#allPrayers:hover {
+    cursor: pointer;
+}
+
+#nextPrayerName {
+    font-size: 1.5rem;
+    color: #fff;
+    user-select: none;
+}
+
+#nextPrayerRemainingTime {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 800;
+    user-select: none;
+}
+
+#nextPrayerContainer #allPrayers {
+    display: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    height: 100px;
+    width: 350px;
+    user-select: none;
+    gap: 1rem;
+}
+
+
+#allPrayers #prayer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 90px; */
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+
+#main-container #clock {
+    font-family: 'Amiri', Arial, sans-serif;
+    font-size: 3rem;
+    padding: 10px;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    border-radius: 10px;
+    color: #fff;
+    justify-self: flex-start;
+    margin-bottom: 0;
+    margin-top: 8rem;
+}
+
+
+#main-container #hijriDate {
+    font-size: 1.7rem;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+
+
+#main-container #quote {
+    font-size: 2.2rem;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    /* background-color: #fff; */
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-family: "Hafs", sans-serif;
+    text-shadow: 0 0 9px #cacaca;
+    /* flex-grow: 1; */
+    margin-top: 3rem;
+    margin-bottom: auto;
+    font-weight: 500;
+
+}
+
+#main-container #zekr {
+    font-size: 1.4rem;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0 10px;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    border-radius: 10px;
+    justify-self: flex-end;
+    margin-top: auto;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#zekrButton {
+    padding: 2px 10px;
+    font-size: 1.3rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Amiri Quran', Arial, sans-serif;
+    height: 40px;
+    width: 200px;
+}
+
+#zekrCounter {
+    padding: auto;
+    font-size: 1.3rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: 'Amiri Quran', Arial, sans-serif;
+    transition: all 0.3s;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#zekrCounter.increase {
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 8px #fff;
+}
+
+
+#zekrSelection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+
+#zekrChange {
+    border: none;
+    background-color: transparent;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+#zekrChangeImageRight {
+    width: 26px;
+    height: 26px;
+    /* color: aliceblue; */
+    background-image: url("../images/right-trans.svg");
+    display: block;
+    background-size: cover;
+    transition: all 0.5s;
+}
+
+#zekrChangeImageRight:hover {
+    background-image: url("../images/right.svg");
+    cursor: pointer;
+}
+
+#zekrChangeImageLeft {
+    width: 26px;
+    height: 26px;
+    /* color: aliceblue; */
+    background-image: url("../images/left-trans.svg");
+    display: block;
+    background-size: cover;
+    transition: all 0.5s;
+}
+
+#zekrChangeImageLeft:hover {
+    background-image: url("../images/left.svg");
+    cursor: pointer;
+}
+
+#zekrChangeImageLeft:active {
+    transform: scale(0.85);
+}
+
+#zekrChangeImageRight:active {
+    transform: scale(0.85);
+}
+
+

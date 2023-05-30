@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "name": "Hadith Tab",
+    "description": "Hadith Tab",
+    "version": "1.0",
+    "icons": {
+        "128": "./images/icon.png"
+    },
+    "browser_action": {
+        "default_icon": "./images/icon.png",
+        "default_title": "Hadith Tab",
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "chrome_url_overrides": {
+        "newtab": "content/content.html"
+    }
+}
