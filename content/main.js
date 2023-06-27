@@ -1,83 +1,16 @@
-const accessKey = "GxBTNbixQYXksiQtLjZbhTIlCxVrSoLAgffQzss8Zds";
+import convertToArabicNumerals from "./helpers/arabicNumerals.js";
 
-// import { convertToArabicNumerals } from './arabicNumerals.js';
-
-// Function to convert English numerals to Arabic numerals
-function convertToArabicNumerals(string) {
-  console.log("string: " + string);
-  const arabicNumerals = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
-  return String(string).replace(
-    /\d/g,
-    (digit) => arabicNumerals[Number(digit)]
-  );
-}
-
-// Get the current date
-const currentDate = new Date();
-
-// Create the Hijri date formatter for Arabic
-const hijriDateFormatter = new Intl.DateTimeFormat("ar", {
-  calendar: "islamic-umalqura",
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-  weekday: "long",
-});
-
-// Format the Hijri date in Arabic
-const hijriDate = hijriDateFormatter.format(currentDate);
+import { setHijriDate } from "./helpers/hijriDate.js";
+import { setBackgroundImage } from "./helpers/backgroundImage.js";
+import { setQuote } from "./helpers/quote.js";
+import { setClock } from "./helpers/clock.js";
 
 // Set the Hijri date in the HTML elements
-const hijriDateElementArabic = document.getElementById("hijriDate");
-hijriDateElementArabic.textContent = convertToArabicNumerals(hijriDate);
 
-// Get the image path relative to the content.js file
-// Get the image path relative to the content.js file
-const imagePath = chrome.runtime.getURL("../data/background/back-dark.jpg");
-
-const image = new Image();
-image.src = imagePath;
-const imageElement = document.getElementById("natureImage");
-imageElement.style.display = "none";
-
-image.addEventListener("load", function () {
-  imageElement.src = image.src;
-  imageElement.style.display = "block";
-});
-
-document.getElementById("quote").innerText =
-  "”..احْرِصْ علَى ما يَنْفَعُكَ ، وَاسْتَعِنْ باللَّهِ وَلَا تَعْجِزْ.“(صحيح مسلم)";
-
-const clock = document.getElementById("clock");
-
-// Update the clock element with Arabic numerals
-function updateClock() {
-  const currentDate = new Date();
-  let hours = currentDate.getHours();
-  let minutes = currentDate.getMinutes();
-  let amPm;
-
-  if (hours >= 0 && hours < 12) {
-    amPm = "ص"; // Morning
-  } else {
-    amPm = "م"; // Night
-  }
-
-  // Convert hours to 12-hour format and convert to Arabic numerals
-  hours = hours % 12 || 12;
-
-  // Format the time as HH:MM AM/PM
-  const formattedTime = `${hours}:${String(minutes).padStart(2, "0")} ${amPm}`;
-
-  // Update the clock element with Arabic numerals
-  clock.textContent = convertToArabicNumerals(formattedTime);
-}
-
-// Update the clock immediately
-updateClock();
-
-// Update the clock every minute
-setInterval(updateClock, 60000);
+setBackgroundImage();
+setClock("ar");
+setHijriDate("ar");
+setQuote();
 
 const zekrButton = document.getElementById("zekrButton");
 const zekrCounter = document.getElementById("zekrCounter");
@@ -306,7 +239,7 @@ const updateNextPrayer = async () => {
       timeDifferenceInMinutesRemainder
   );
   nextPrayerRemainingTime.textContent = timeDifferenceInHoursArabic;
-  nextPrayerName.textContent = nextPrayerArabicName + "بعد ";
+  nextPrayerName.textContent = nextPrayerArabicName + " بعد";
   if (timeDifferenceInHours === 0 && timeDifferenceInMinutesRemainder < 30) {
     nextPrayerRemainingTime.style.color = "red";
   }
