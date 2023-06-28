@@ -1,6 +1,7 @@
+import duas from "../data/duas.js";
+
 const setQuote = () => {
-  const quote =
-    "”..احْرِصْ علَى ما يَنْفَعُكَ ، وَاسْتَعِنْ باللَّهِ وَلَا تَعْجِزْ.“(صحيح مسلم)";
+  const quote = duas[Math.floor(Math.random() * duas.length)]["ar"];
   document.getElementById("quote").innerText = quote;
 };
 

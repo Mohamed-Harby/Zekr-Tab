@@ -57,41 +57,27 @@ body:before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* gap: 20px; */
-    /* padding: 2rem; */
 }
 
-#bar {
+#top-bar {
     width: 100%;
+    min-height: 3rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* gap: 20px; */
+    backdrop-filter: blur(20px); /* Apply a blur effect */
 }
 
-#nextPrayerContainer {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+#nextPrayer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    width: 150px;
-    transition: all 0.5s;
-    padding: 0rem 1rem 0rem;
-    height: 100px;
-}
-  
-#nextPrayerContainer #nextPrayer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 150px;
+    width: 160px;
     user-select: none;
+    gap: 1rem;
+    padding: 0 1rem;
 }
 
 
@@ -138,9 +124,21 @@ body:before {
 }
 
 
+
+#hijriDate {
+    font-size: 1.7rem;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0 10px;
+    border-radius: 10px;
+    padding: 0 1rem;
+}
+
 #main-container #clock {
     font-family: 'Amiri', Arial, sans-serif;
-    font-size: 3rem;
+    font-size: 4rem;
+    font-weight: 200;
     padding: 10px;
     /* background-color: rgba(255, 255, 255, 0.3); */
     border-radius: 10px;
@@ -148,16 +146,6 @@ body:before {
     justify-self: flex-start;
     margin-bottom: 0;
     margin-top: 8rem;
-}
-
-
-#main-container #hijriDate {
-    font-size: 1.7rem;
-    color: #fff;
-    text-align: center;
-    margin: 0;
-    padding: 0 10px;
-    border-radius: 10px;
 }
 
 
